@@ -38,12 +38,18 @@ public class Paciente implements Comparable<Paciente> {
         this.prioridadeEnum = prioridadeEnum;
     }
 
-    public PrioridadeEnum relationPrioridade (){
+    public PrioridadeEnum relationPriority (){
+
+
 
         for (PrioridadeEnum tipo : PrioridadeEnum.values()){
-            if (tipo.getPrioridade() == getPrioridade()){
+            if (tipo.getPrioridade() == getPrioridade()) {
                 return tipo;
             }
+        }
+
+        if (prioridadeEnum.getPrioridade() != getPrioridade()){
+            throw new IllegalArgumentException("Prioridade diferente");
         }
         return null;
     }
